@@ -18,6 +18,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { HomeComponent } from './home/home.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     ContactComponent,
     DropdownComponent,
-    HomeComponent
+    HomeComponent,
+ 
   
   ],
   imports: [
