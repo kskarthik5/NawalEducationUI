@@ -1,0 +1,59 @@
+<section *ngIf="loggedIn" class="text-gray-600 body-font scroll-smooth ">
+  <div class="px-10 py-10 flex flex-row justify-between h-max bg-blue-100">
+    <div class="flex flex-row justify-left">
+      <img class="bg-white rounded-full h-10 w-10"
+        src="https://cdn.kastatic.org/images/avatars/svg/blobby-green.svg" />
+      <h1 class="mx-10 text-2xl justify-center">{{user['name'] | uppercase}}</h1>
+    </div>
+    <button class="hover:underline">Edit Profile</button>
+  </div>
+  <div class="flex flex-col md:flex-row my-10 mx-10 align-top">
+    <div class="flex flex-wrap w-full md:w-2/3">
+      <h2 class="text-center justify-center mx-10 text-2xl">
+        My Courses</h2>
+      <div class="p-4 w-full" *ngFor="let subject of enrolled;index as i">
+        <div class="shadow-2xl h-fit border-2 border-gray-200 border-opacity-60 rounded-lg ">
+          <img class="h-48 cursor-pointer md:h-24 w-full rounded-tl-lg rounded-tr-lg object-cover object-center "
+            [src]="subject['banner_img']" alt="blog" (click)="onSelect(subject)">
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+              {{subject["category"]}}</h2>
+            <div class="flex flex-row justify-between">
+              <h1 (click)="onSelect(subject)"
+                class="title-font text-xl font-thin text-gray-900 mb-3  cursor-pointer hover:underline">
+                {{subject["name"] | uppercase}}</h1>
+            </div>
+            <div class="flex items-center flex-wrap ">
+              <span
+                class="text-gray-400 mr-3 inline-flex items-center h-fit ml-auto text-xs pr-3 py-1 border-r-2 border-gray-200">
+                {{subject["teacher"]}}
+              </span>
+            </div>
+            <div class="flex flex-col mx-5">
+              <div *ngFor="let unit of subject['units'];index as j" class=" ...">
+
+                <div class=" w-full ">
+                  <div class="bg-gray-50 w-max rounded flex p-2 my-1  h-full rounded-full cursor-pointer ">
+                    <div>
+                      <span (click)="onUnitSelect(i,j)"
+                        class=" hover:underline text-gray-900 title-font text-m">
+                        Unit {{j+1}}: {{unit['name']}}</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col w-full md:w-1/3">
+      <h2 class="text-center justify-center text-2xl">
+        Notifications</h2>
+      <div class="shadow-2xl rounded-xl h-max m-5 p-5 border-2">
+        No new notifications
+      </div>
+    </div>
+  </div>
+</section>
