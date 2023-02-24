@@ -22,8 +22,8 @@ export class SignupComponent implements OnInit {
     if (form.value['password'] != form.value['rpassword'])
       alert('Passwords do not match')
     else if (!Object.values(form.value).includes('')) {
-      let user = { name: form.value['name'], password: form.value['password'], email: form.value['email'], role: this.role }
-      this._registerService.register(user)
+      let data = {user:{ name: form.value['name'], password: form.value['password'], email: form.value['email']}, role: this.role }
+      this._registerService.register(data)
     }
   }
 }

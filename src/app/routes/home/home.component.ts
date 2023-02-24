@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit,OnDestroy {
       if (data.status) {
         this.loggedIn = true
         this.user = data['data']
+        if(data.role=='teacher') window.location.href="/courses"
         this.enrolledData.getData(data['data']['enrolled']).then(res=>{
           this.enrolled=res
         })

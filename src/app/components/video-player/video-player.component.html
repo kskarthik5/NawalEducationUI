@@ -1,5 +1,32 @@
-<youtube-player
-      [videoId]="id"
-      [height]="400"
-      [width]="500"
-    ></youtube-player>
+<div class="flex flex-col align-items-center w-full justify-center">
+
+  <div class="bg-black flex justify-center">
+    <iframe width="514" height="289" [src]="getUrl()" allowfullscreen></iframe>
+  </div>
+  <div class="h-max flex">
+    <div class="p-10 flex w-full bg-blue-100 font-medium text-2xl align-items-center justify-between">
+      {{sourceData.title}} <span class="font-thin text-xl text-gray-800">by {{sourceData.teacher_name}}</span>
+    </div>
+  </div>
+  <div class="h-max flex-col bg-white m-10 rounded-lg justify-center">
+    <div class="flex w-full py-5 font-thin text-2xl align-items-center justify-center">
+      Description
+    </div>
+    <div class="flex my-10 text-gray-800 w-full text-s px-10 align-items-center justify-left">
+      {{sourceData.description}}
+    </div>
+    <!-- <div class="flex justify-center p-20">
+      <div *ngIf="prevExists">
+        <button (click)="onClick(-1)" class="p-4 bg-blue-200">
+          PREV : {{prev['name']}}
+        </button>
+      </div>
+      <div *ngIf="nextExists">
+        <button (click)="onClick(1)" class="p-4 bg-cyan-200">
+          NEXT : {{next['name']}}
+        </button>
+      </div>
+
+    </div> -->
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<section class="text-gray-900 body-font m-10 ">
+<section class="text-gray-900 body-font md:mx-10 my-10 ">
     <h2 class="text-center text-2xl">
         {{courseName | uppercase}}</h2>
     <div class="flex flex-wrap m-4">
@@ -13,7 +13,7 @@
                         <h1 (click)="onSelect(subject)"
                             class="title-font text-lg font-medium text-gray-900 mb-3  cursor-pointer hover:underline">
                             {{subject["name"]}}</h1>
-                        <div>
+                        <div *ngIf="isStudent">
                             <button *ngIf="!isEnrolled(subject['nano_id'])" (click)="onEnroll(i)"
                                 class="rounded-3xl px-5 py-1 bg-blue-300">Enroll</button>
                             <button *ngIf="isEnrolled(subject['nano_id'])" (click)="unEnroll(i)"
@@ -27,13 +27,13 @@
                             {{subject["teacher"]}}
                         </span>
                     </div>
-                    <div class="flex flex-wrap md:grid-cols-2 grid-flow-dense p-1 auto-cols-auto place-items-center">
+                    <div class="overflow-hidden flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 p-1 ">
                         <div *ngFor="let unit of subject['units'];index as j" class=" ...">
 
                             <div class=" xs:w-1/2 md:2/3 w-full ">
                                 <div class="bg-gray-50 w-max rounded flex p-2  h-full rounded-full cursor-pointer ">
                                     <span (click)="onUnitSelect(i,j)"
-                                        class=" hover:underline focus:outline-none focus:ring focus:ring-violet-300 ... title-font font-xsall">
+                                        class=" hover:underline  focus:outline-none focus:ring focus:ring-violet-300 ... title-font font-xsall">
                                         Unit {{j+1}}: {{unit['name']}}</span>
                                 </div>
                             </div>
@@ -43,4 +43,8 @@
             </div>
         </div>
     </div>
+    <div class="flex justify-center" *ngIf="isAdmin">
+        <div (click)="addSubject()" class="flex justify-center flex text-xl rounded-lg cursor-pointer w-40 bg-blue-200 hover:bg-cyan-200 p-4">+ Subject</div>
+    </div>
 </section>
+<ng-template #addSubjectPopup></ng-template>

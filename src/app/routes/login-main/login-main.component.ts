@@ -8,11 +8,15 @@ import { LoginService } from 'src/app/services/auth/login.service';
   providers:[LoginService]
 })
 export class LoginMainComponent implements OnInit {
+  role: string = 'student'
   constructor(private _loginService:LoginService){}
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+  setRole(role: string) {
+    this.role = role
+  }
   onSubmit(form:NgForm): void {
-    this._loginService.login(form.value['email'],form.value['password'])
+    this._loginService.login(form.value['email'],form.value['password'],this.role)
   }
 }

@@ -20,6 +20,7 @@ export class MainHeaderComponent implements OnInit {
       if (data.status) {
         this.notloggedIn = false
         this.user=data
+        console.log(data)
       }
     })
   }

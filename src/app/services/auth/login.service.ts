@@ -6,13 +6,13 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
   constructor(private router:Router) {}
-  login(email: string, password: string): boolean {
+  login(email: string, password: string,role :string): boolean {
     fetch(`${environment.api_url}/login`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      }, body: JSON.stringify({ email, password })
+      }, body: JSON.stringify({ email, password, role })
     })
       .then(async (response) => await response.json())
       .then((res) => {
@@ -22,6 +22,7 @@ export class LoginService {
         else {
           localStorage.setItem('email', email);
           localStorage.setItem('id_token', res.token);
+          localStorage.setItem('role', role);
           window.location.href="/"
         }
       })
