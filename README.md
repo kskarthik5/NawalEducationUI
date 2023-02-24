@@ -1,8 +1,4 @@
-Backend files are added in the "server" folder.
 
-Only edited files from project are "login-main.component.html" and "signup.component.html" to add ids for input fields.
-
-# Naval
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
 
