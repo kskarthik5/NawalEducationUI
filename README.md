@@ -1,6 +1,6 @@
 ## Changelog
 
-#v0.1.2
+**v0.1.2** - 24/02/23
 
 - Topics in each unit can have contents from multiple teachers
 - Teachers can post content in different topics
