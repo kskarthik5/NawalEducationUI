@@ -1,6 +1,11 @@
+## Changelog
 
+#v0.1.2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+- Topics in each unit can have contents from multiple teachers
+- Teachers can post content in different topics
+- Admin features added - new topics can be added to Units; new units,subjects and courses can be created by admin. Currently users registered as teacher have admin features.
+- Youtube embeds are fixed.
 
 ## Development server
 
